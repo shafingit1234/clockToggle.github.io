@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="script.js"></script>
+    <style>
+        
+        .clock{
+            position: relative;
+            width: 40vw;
+            height: 40vw;
+            background-size: 100%;
+            margin:auto;
+            top:50px;
+            /* border:2px solid red; */
+        }
+        #hour, #minutes, #seconds{
+            position: absolute;
+            background-color: black;
+            border-radius: 10px;
+            transform-origin:bottom;
+        }
+        #hour{
+            width: 1.8%;
+            height:25%;
+            top:26%;
+            left:48.85%;
+            /* display: none; */
+        }
+        #minutes{
+            width:1.4%;
+            height:37%;
+            /* bottom:10%; */
+            top:14%;
+            left:49.05%;
+            /* display: none; */
+        }
+        #seconds{
+            width:1.4%;
+            height:41%;
+            top: 10%;
+            left:49.05%;
+            /* display: none; */
+        }
+        #digitalClock{
+            position: relative;
+            /* border:2px solid red; */
+            display: inline-block;
+            padding: 5px 5px 5px 5px;
+            font-size: 30px;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        #toggle {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            background-color: aliceblue;
+            color: rgb(1, 0, 0);
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+        }
+        #toggle:hover {background-color: #7b7f7c}
+        #toggle:active {
+            background-color: #a6b4a6;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+        @media screen and (max-width: 500px;) {
+            #digitalClock{
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="container"> -->
+    <div id="toggle1">
+        <button id = "toggle" style="font-size:24px" onclick="toggleFunc()">Dark</button>
+        <script>
+            function toggleFunc()
+            {
+                const body = document.querySelector('body');
+                var x = document.getElementById("toggle");
+                if(x.innerHTML == "Dark")
+                {
+                    x.innerHTML = "Bright";
+                    body.style.background = 'black';
+                    body.style.color = 'white';
+                    body.style.transition = '2s';
+                }
+                else{
+                    x.innerHTML = "Dark"
+                    body.style.background = 'white';
+                    body.style.color = 'black';
+                    body.style.transition = '2s';
+                }
+            }
+        </script>
+    </div>
+    <div class="clock" style="background-image: url('./images/clock.png');">
+        <div id="hour"></div>
+        <div id="minutes"></div>
+        <div id="seconds"></div>
+    </div>
+    <div id ="digitalClock"></div>
+    <!-- </div> -->
+</body>
+</html>
